@@ -1,0 +1,43 @@
+CACHE MANIFEST
+# playzone offline cache v2 (2026-09-04) — fixed manifest
+#
+# v1 bug 1: hash comments were appended to URL lines ("index.html #sha").
+# A '#' inside a URL line is parsed as a URL fragment, so every entry below
+# it was invalid and the whole cache update failed. Comments must sit on
+# their own line and start with '#'.
+#
+# v1 bug 2: the pages import chain_lapse.js?ui=3 / chain_poops.js?ui=3 and
+# redirect to run_lapse.html?ui=3 / run_poops.html?ui=3, but the cache only
+# listed the URLs WITHOUT "?ui=3". AppCache matches URLs exactly (query
+# string included), so offline module imports always missed the cache.
+#
+# Note: chain_poops.js and mem.js import "core.js?v=10" while chain_lapse.js
+# imports plain "core.js" — both exact specifiers are listed below.
+
+CACHE:
+index.html
+run_lapse.html
+run_poops.html
+run_lapse.html?ui=3
+run_poops.html?ui=3
+chain_lapse.js?ui=3
+chain_poops.js?ui=3
+core.js
+core.js?v=10
+mem.js
+int64.js
+ps4_offsets.js
+rpc_worker.js
+logo_playzone.png
+payload.bin
+patches/1100.bin
+patches/1150.bin
+patches/1200.bin
+patches/1250.bin
+patches/1300.bin
+
+NETWORK:
+*
+
+FALLBACK:
+/ index.html
