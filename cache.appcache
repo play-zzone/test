@@ -1,5 +1,7 @@
 CACHE MANIFEST
-# playzone offline cache v2 (2026-09-04) — fixed manifest
+# playzzone-gold offline cache v2.1 (2026-09-13) — GOLD UI
+# v2.1 bump: brand/index/run pages re-themed; comment change forces
+# AppCache to re-fetch the listed resources on the next online visit.
 #
 # v1 bug 1: hash comments were appended to URL lines ("index.html #sha").
 # A '#' inside a URL line is parsed as a URL fragment, so every entry below

@@ -3,18 +3,18 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>PLAYZONE GOLD — PS4</title>
+<title>PLAYZZONE-GOLD — PS4</title>
 <style>
 /* ============ PLAYZONE GOLD v2.1 — black & gold, featherweight ============ */
 :root{--gold:#e8c15a;--gold2:#f6dc86;--ink:#000;--panel:#0d0d0d;--track:#1a1a1a;--line:rgba(232,193,90,.38);--text:#f4ecd9;--muted:#a3926d;--bad:#ff6b5e;--ok:#58d68d}
 *{box-sizing:border-box}
 html,body{margin:0;min-height:100%;background:var(--ink);color:var(--text);font:16px/1.5 system-ui,"Segoe UI",sans-serif}
-body{min-height:100vh;display:flex;flex-direction:column;align-items:center}
-header#brand{width:100%;padding:13px 16px;text-align:center;border-bottom:1px solid var(--line);background:#020202}
-#brand b{color:var(--gold);font-size:19px;font-weight:800;letter-spacing:.22em}
-#brand small{display:block;color:var(--muted);font-size:12px;letter-spacing:.05em}
-main{width:min(470px,calc(100% - 30px));max-width:470px;margin:34px auto 0;padding:26px 22px;text-align:center;background:var(--panel);border:1px solid var(--line);border-radius:16px}
-h1{font-size:15px;margin:0 0 14px;color:var(--muted)}
+body{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center}
+/* brand now lives inside the card */
+main{width:min(470px,calc(100% - 30px));max-width:470px;margin:0 auto 26px;padding:26px 22px;text-align:center;background:var(--panel);border:1px solid var(--line);border-radius:16px}
+.brand{margin:0;font-size:26px;font-weight:800;color:var(--gold);letter-spacing:.14em}
+.sub{margin:2px 0 18px;font-size:12px;color:var(--muted);letter-spacing:.08em}
+.sec{font-size:15px;margin:0 0 14px;color:var(--muted);font-weight:600}
 /* device row */
 .fwrow{display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap;margin:2px 0 18px}
 #fwchip{font-size:34px;font-weight:800;color:var(--gold2);padding:6px 18px;border:1px solid var(--line);border-radius:12px;background:#050505;text-shadow:0 0 14px rgba(232,193,90,.35)}
@@ -38,17 +38,18 @@ footer b{color:var(--gold)}
 </style>
 </head>
 <body>
-<header id="brand"><b>PLAYZONE</b><small>PS4 GOLD • 11.50 – 13.04</small></header>
 <main>
-  <h1>إصدار الجهاز — Device Version</h1>
-  <div class="fwrow"><div id="fwchip">··</div></div>
+  <h1 class="brand">PLAYZZONE-GOLD</h1>
+  <p class="sub">PS4 GOLD • 11.50 – 13.04</p>
+  <h2 class="sec">إصدار الجهاز — Device Version</h2>
+  <div class="fwrow"><div id="fwchip">—</div></div>
   <div class="fwrow" id="pills"></div>
   <div class="bar"><div id="fill"></div></div>
   <div id="pct"><span id="sub">جارٍ التجهيز… / Preparing…</span></div>
   <div id="state"></div>
   <div id="tap"></div>
 </main>
-<footer>V2.1 GOLD — v2.1 interface • <b>play_zzone</b></footer>
+<footer>PLAYZZONE-GOLD V2.1 • <b>play_zzone</b></footer>
 
 <script>
 (function () {
@@ -79,7 +80,7 @@ footer b{color:var(--gold)}
   var KNOWN = { "11.50": 1, "12.00": 1, "12.02": 1, "12.50": 1, "12.52": 1, "13.00": 1, "13.02": 1, "13.04": 1 };
   var pill = document.createElement("div");
   pill.className = "pill" + (KNOWN[KEY] ? " ok" : " warn");
-  pill.textContent = KNOWN[KEY] ? "✔ مدعوم — SUPPORTED" : "غير مُتحقَّق — UNVERIFIED";
+  pill.textContent = KNOWN[KEY] ? "مدعوم — SUPPORTED" : "غير مُتحقَّق — UNVERIFIED";
   pills.appendChild(pill);
 
   /* ---------- chain selection ---------- */

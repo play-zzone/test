@@ -1,4 +1,4 @@
-PLAYZONE GOLD v2.1 — PS4 WebKit host
+PLAYZZONE-GOLD v2.1 — PS4 WebKit host
 ====================================
 واجهة ذهبية خفيفة • Gold, featherweight UI
 PRIMARY CHAIN: POOPS  (chain_poops.js / run_poops.html)
@@ -30,9 +30,16 @@ PRIMARY CHAIN: POOPS  (chain_poops.js / run_poops.html)
    * إصلاح: مسار LAPSE كان يسرّب ?bug=lapse إلى رابط صفحات الإقلاع
      فيفشل تطابق الكاش الأوفلاين — الآن الرابط دقيق لملف cache.appcache.
    * البار الذهبي يظهر الآن أثناء التفعيل نفسه: شريط متحرك ذهبي مع سطر
-     حالة ثنائي اللغة — "جارٍ التفعيل… / Activating…" ثم "تم التفعيل ✓ /
-     Activated ✓" (وعند الفشل: "تعذّر التفعيل / Activation FAILED").
+     حالة ثنائي اللغة — "جارٍ التفعيل… / Activating…" ثم "تم التفعيل /
+     Activated" (وعند الفشل: "تعذّر التفعيل / Activation FAILED").
      The gold bar now runs through activation with bilingual status.
+   * رُفع رقم المانيفست إلى v2.1 (تغيير سطر تعليق فقط) — يفرض على
+     الأجهزة التي لديها كاش قديم إعادة تنزيل الواجهة الجديدة تلقائيًا
+     بدون مسح الكاش يدويًا. قائمة روابط CACHE لم تُلمس، ولا أي ملف استغلال.
+     Manifest bumped to v2.1 (comment-only) so old caches refresh the new
+     UI automatically; the CACHE URL list and exploit files are untouched.
+   * العلامة في منتصف الشاشة: PLAYZZONE-GOLD بلا رموز تعبيرية، والخلفية سوداء.
+     Brand "PLAYZZONE-GOLD" centered on screen, zero emoji, black background.
 
 ملاحظة مهمة: سلاسل الاستغلال (chain_*.js / core.js / mem.js / int64.js /
 ps4_offsets.js / rpc_worker.js) والملفات الثنائية (payload.bin / patches /
@@ -76,4 +83,4 @@ lapse chain = بديل عند الحاجة (للإصدارات 12.02 وما دو
 
   النسخة الاحتياطية قبل التعديل: C:\temp\ps4_web_original
 ===========================================================
-PLAYZONE GOLD v2 — with love, play_zzone
+PLAYZZONE-GOLD v2.1 — with love, play_zzone
