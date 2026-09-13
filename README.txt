@@ -1,4 +1,4 @@
-PLAYZONE GOLD v2 — PS4 WebKit host
+PLAYZONE GOLD v2.1 — PS4 WebKit host
 ====================================
 واجهة ذهبية خفيفة • Gold, featherweight UI
 PRIMARY CHAIN: POOPS  (chain_poops.js / run_poops.html)
@@ -29,6 +29,10 @@ PRIMARY CHAIN: POOPS  (chain_poops.js / run_poops.html)
    * لا يوجد أي مسار يطلب ضغطة زر للإكمال (الزر طوارئ فقط).
    * إصلاح: مسار LAPSE كان يسرّب ?bug=lapse إلى رابط صفحات الإقلاع
      فيفشل تطابق الكاش الأوفلاين — الآن الرابط دقيق لملف cache.appcache.
+   * البار الذهبي يظهر الآن أثناء التفعيل نفسه: شريط متحرك ذهبي مع سطر
+     حالة ثنائي اللغة — "جارٍ التفعيل… / Activating…" ثم "تم التفعيل ✓ /
+     Activated ✓" (وعند الفشل: "تعذّر التفعيل / Activation FAILED").
+     The gold bar now runs through activation with bilingual status.
 
 ملاحظة مهمة: سلاسل الاستغلال (chain_*.js / core.js / mem.js / int64.js /
 ps4_offsets.js / rpc_worker.js) والملفات الثنائية (payload.bin / patches /

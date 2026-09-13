@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>PLAYZONE GOLD — PS4</title>
 <style>
-/* ============ PLAYZONE GOLD v2 — black & gold, featherweight ============ */
+/* ============ PLAYZONE GOLD v2.1 — black & gold, featherweight ============ */
 :root{--gold:#e8c15a;--gold2:#f6dc86;--ink:#000;--panel:#0d0d0d;--track:#1a1a1a;--line:rgba(232,193,90,.38);--text:#f4ecd9;--muted:#a3926d;--bad:#ff6b5e;--ok:#58d68d}
 *{box-sizing:border-box}
 html,body{margin:0;min-height:100%;background:var(--ink);color:var(--text);font:16px/1.5 system-ui,"Segoe UI",sans-serif}
@@ -48,7 +48,7 @@ footer b{color:var(--gold)}
   <div id="state"></div>
   <div id="tap"></div>
 </main>
-<footer>V2.0 GOLD — v2 interface • <b>play_zzone</b></footer>
+<footer>V2.1 GOLD — v2.1 interface • <b>play_zzone</b></footer>
 
 <script>
 (function () {
@@ -95,7 +95,7 @@ footer b{color:var(--gold)}
     if (GONE) return;
     GONE = true;
     if (WATCHDOG) clearTimeout(WATCHDOG);
-    say(why || "جارٍ الإقلاع… / Launching…", "ok");
+    say(why || "جارٍ التفعيل… / Activating…", "ok");
     try { location.replace(target); } catch (e) { location.href = target; }
   }
 
