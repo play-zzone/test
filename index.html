@@ -1,109 +1,182 @@
 <!DOCTYPE html>
-<html lang="ar" manifest="cache.appcache">
+<html lang="ar" dir="rtl" manifest="cache.appcache">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>ps4 jailbreak — poops</title>
+<title>PLAYZONE GOLD — PS4</title>
 <style>
-  :root { --bg:#1d3470; --panel:rgba(59,88,166,.86); --line:rgba(93,151,255,.28); --text:#edf4ff; --muted:#9aafd2; --cyan:#48caff; --violet:#8b6cff; }
-  * { box-sizing:border-box; }
-  html, body { min-height:100%; margin:0; background:radial-gradient(circle at 18% -15%,#6798ff 0,transparent 38%),radial-gradient(circle at 100% 100%,#986bd6 0,transparent 42%),var(--bg); color:var(--text); font:15px/1.5 "Segoe UI",system-ui,sans-serif; }
-  body { min-height:100vh; display:flex; flex-direction:column; }
-  #brand { flex:0 0 auto; display:flex; align-items:center; justify-content:center; gap:10px; min-height:66px; padding:11px 18px; background:rgba(29,52,112,.82); border-bottom:1px solid var(--line); box-shadow:0 8px 28px rgba(0,0,0,.25); backdrop-filter:blur(12px); }
-  #brand b { color:#fff; font-size:17px; font-weight:800; letter-spacing:.18em; text-shadow:0 0 18px rgba(72,202,255,.45); }
-  #wrap { width:min(480px, calc(100% - 32px)); max-width:480px; margin:auto; padding:28px 24px; text-align:center; background:var(--panel); border:1px solid var(--line); border-radius:18px; box-shadow:0 18px 48px rgba(4,8,28,.24),inset 0 1px 0 rgba(255,255,255,.05); }
-  #state { margin:0; font-size:25px; font-weight:800; }
-  #det { display:block; margin:12px 0 0; color:#a9bde0; font-size:14px; }
-  #det b { color:#fff; }
-  #cache { display:block; margin:18px 0 0; padding:10px 14px; border:1px solid rgba(128,183,255,.35); border-radius:12px; background:rgba(9,20,59,.3); color:#d8e8ff; font-size:13px; }
-  #cache.cacheok, .ok { color:#65e8b8; } .bad { color:#ff8398; } .warn { color:#ffd16e; }
-  #version { position:fixed; right:0; bottom:18px; left:0; margin:0; color:#d8e5ff; font-size:12px; font-weight:700; letter-spacing:.12em; text-align:center; opacity:.9; }
+/* ============ PLAYZONE GOLD v2 — black & gold, featherweight ============ */
+:root{--gold:#e8c15a;--gold2:#f6dc86;--ink:#000;--panel:#0d0d0d;--track:#1a1a1a;--line:rgba(232,193,90,.38);--text:#f4ecd9;--muted:#a3926d;--bad:#ff6b5e;--ok:#58d68d}
+*{box-sizing:border-box}
+html,body{margin:0;min-height:100%;background:var(--ink);color:var(--text);font:16px/1.5 system-ui,"Segoe UI",sans-serif}
+body{min-height:100vh;display:flex;flex-direction:column;align-items:center}
+header#brand{width:100%;padding:13px 16px;text-align:center;border-bottom:1px solid var(--line);background:#020202}
+#brand b{color:var(--gold);font-size:19px;font-weight:800;letter-spacing:.22em}
+#brand small{display:block;color:var(--muted);font-size:12px;letter-spacing:.05em}
+main{width:min(470px,calc(100% - 30px));max-width:470px;margin:34px auto 0;padding:26px 22px;text-align:center;background:var(--panel);border:1px solid var(--line);border-radius:16px}
+h1{font-size:15px;margin:0 0 14px;color:var(--muted)}
+/* device row */
+.fwrow{display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap;margin:2px 0 18px}
+#fwchip{font-size:34px;font-weight:800;color:var(--gold2);padding:6px 18px;border:1px solid var(--line);border-radius:12px;background:#050505;text-shadow:0 0 14px rgba(232,193,90,.35)}
+.pill{padding:4px 11px;border-radius:999px;border:1px solid var(--line);background:#050505;color:var(--gold);font-size:12px;font-weight:700;letter-spacing:.04em}
+.pill.ok{color:var(--ok);border-color:rgba(88,214,141,.45)}
+.pill.warn{color:var(--gold2)}
+.pill.bad{color:var(--bad);border-color:rgba(255,107,94,.5)}
+/* progress bar */
+.bar{margin:14px auto 0;width:100%;height:20px;border-radius:10px;background:var(--track);border:1px solid var(--line);overflow:hidden}
+#fill{height:100%;width:0%;background:linear-gradient(180deg,var(--gold2),var(--gold));box-shadow:0 0 10px rgba(232,193,90,.45);transition:width .22s linear}
+#fill.busy{width:100%;background:repeating-linear-gradient(45deg,var(--gold2) 0 12px,var(--gold) 12px 24px);animation:slide 1s linear infinite}
+@keyframes slide{from{background-position:0 0}to{background-position:24px 0}}
+#pct{font-size:20px;font-weight:800;color:var(--gold);margin:10px 0 2px}
+#pct span{color:var(--muted);font-size:13px}
+#state{font-size:15px;color:var(--text);min-height:21px;margin:2px 0 0}
+#state.warn{color:var(--gold2)}#state.ok{color:var(--ok)}#state.bad{color:var(--bad)}
+/* tap fallback */
+#tap{display:none;margin:16px 0 0;padding:12px 20px;border-radius:12px;border:1px solid var(--gold);background:linear-gradient(180deg,var(--gold2),var(--gold));color:#000;font-size:15px;font-weight:800;text-align:center}
+footer{width:100%;padding:14px 0;color:var(--muted);font-size:12px;text-align:center}
+footer b{color:var(--gold)}
 </style>
 </head>
 <body>
-<div id="brand"><b>PLAYZONE</b></div>
-<div id="wrap">
-  <div id="state">جارٍ التفعيل…</div>
-  <div id="det"></div>
-  <div id="cache"></div>
-</div>
-<p id="version">V1.0</p>
+<header id="brand"><b>PLAYZONE</b><small>PS4 GOLD • 11.50 – 13.04</small></header>
+<main>
+  <h1>إصدار الجهاز — Device Version</h1>
+  <div class="fwrow"><div id="fwchip">··</div></div>
+  <div class="fwrow" id="pills"></div>
+  <div class="bar"><div id="fill"></div></div>
+  <div id="pct"><span id="sub">جارٍ التجهيز… / Preparing…</span></div>
+  <div id="state"></div>
+  <div id="tap"></div>
+</main>
+<footer>V2.0 GOLD — v2 interface • <b>play_zzone</b></footer>
 
 <script>
 (function () {
-    var stateEl = document.getElementById("state");
-    var detEl = document.getElementById("det");
-    var cacheEl = document.getElementById("cache");
-    function setState(t, c) { stateEl.textContent = c === "bad" ? "تعذّر التفعيل" : c === "ok" ? "تم التفعيل" : "جارٍ التفعيل…"; stateEl.className = c || ""; }
-    function setCache(t, ok) { cacheEl.textContent = t; cacheEl.className = ok ? "cacheok" : ""; }
-    function showOfflineReady() { setCache("اكتمل تحميل الملفات — 100%", true); stateEl.textContent = "اكتمل التحميل — أغلق المتصفح وأعد فتحه"; stateEl.className = "ok"; }
-    var params = new URLSearchParams(location.search);
+  "use strict";
+  var $ = function (id) { return document.getElementById(id); };
+  var fill = $("fill"), pct = $("pct"), sub = $("sub"), st = $("state"), fwchip = $("fwchip"), pills = $("pills"), tap = $("tap");
+  var params = new URLSearchParams(location.search);
+  var GONE = false, RETRIED = false, WATCHDOG = null;
 
-    var key = null, fwnum = null;
-    var m = /PlayStation\s+4[\/ ](\d+)\.(\d+)/.exec(navigator.userAgent);
-    if (m) {
-        var minor = parseInt(m[2], 16);
-        var ms = minor.toString(16);
-        if (ms.length < 2) ms = "0" + ms;
-        key = m[1] + "." + ms;
-        fwnum = parseInt(m[1], 10) * 100 + parseInt(ms, 10);
-    }
+  function setFill(p) {
+    p = Math.max(0, Math.min(100, Math.round(p)));
+    fill.classList.remove("busy"); fill.style.width = p + "%";
+    pct.innerHTML = p + "%";
+  }
+  function busy() { fill.style.width = "100%"; fill.classList.add("busy"); pct.textContent = ""; }
+  function say(t, cls) { st.textContent = t; st.className = cls || ""; }
+  function subOnly(t) { sub.textContent = t; }
 
-    // CHAIN = POOPS (default). lapse only via explicit ?bug=lapse.
-    var bug = (params.get("bug") === "lapse") ? "lapse" : "poops";
-    detEl.innerHTML = "إصدار النظام: <b>" + (key || "غير معروف") + "</b> — البَقّ: <b>" + bug + "</b>";
+  /* ---------- firmware detection (same hex-minor rule as the chains) ---------- */
+  var KEY = "", FWNUM = 0, m = /PlayStation\s+4[\/ ](\d+)\.(\d+)/i.exec(navigator.userAgent);
+  if (m) {
+    var minor = parseInt(m[2], 16), ms = minor.toString(16);
+    if (ms.length < 2) ms = "0" + ms;
+    KEY = m[1] + "." + ms; FWNUM = parseInt(m[1], 10) * 100 + minor;
+  }
+  if (params.get("fw")) { KEY = params.get("fw"); FWNUM = 0; }        // ?fw=13.00 override for testing
+  fwchip.textContent = KEY ? KEY : "??";
+  var KNOWN = { "11.50": 1, "12.00": 1, "12.02": 1, "12.50": 1, "12.52": 1, "13.00": 1, "13.02": 1, "13.04": 1 };
+  var pill = document.createElement("div");
+  pill.className = "pill" + (KNOWN[KEY] ? " ok" : " warn");
+  pill.textContent = KNOWN[KEY] ? "✔ مدعوم — SUPPORTED" : "غير مُتحقَّق — UNVERIFIED";
+  pills.appendChild(pill);
 
-    var target = (bug === "lapse" ? "run_lapse.html" : "run_poops.html")
-        + location.search + (location.search ? "&" : "?") + "ui=3";
-    function go() { setState("loading " + bug + " chain...", "warn");
-                    location.replace(target); }
+  /* ---------- chain selection ---------- */
+  var bug = params.get("bug") === "lapse" ? "lapse" : "poops";
+  var base = bug === "lapse" ? "run_lapse.html" : "run_poops.html";
+  var target = base + "?ui=3";                             // exact cache-manifest URL (fix: was leaking ?bug=… into cache lookups)
+  var chainPill = document.createElement("div");
+  chainPill.className = "pill";
+  chainPill.textContent = "السلسلة — CHAIN: " + (bug === "lapse" ? "LAPSE" : "POOPS");
+  pills.appendChild(chainPill);
 
-    function waitForTap(msg, action) {
-        setState(msg, "warn");
-        function fire() {
-            window.removeEventListener("click", fire);
-            window.removeEventListener("keydown", fire);
-            action();
-        }
-        window.addEventListener("click", fire);
-        window.addEventListener("keydown", fire);
-    }
+  function go(why) {
+    if (GONE) return;
+    GONE = true;
+    if (WATCHDOG) clearTimeout(WATCHDOG);
+    say(why || "جارٍ الإقلاع… / Launching…", "ok");
+    try { location.replace(target); } catch (e) { location.href = target; }
+  }
 
-    var ac = window.applicationCache;
-    if (!ac || !document.documentElement.hasAttribute("manifest")) {
-        go();
-    } else if (!navigator.onLine) {
-        setCache("offline -- from cache", true);
-        go();
-    } else if (ac.status === ac.IDLE) {
-        setCache("cached", true);
-        go();
-    } else if (ac.status === ac.UPDATEREADY) {
-        try { ac.swapCache(); } catch (e) {}
-        showOfflineReady();
+  /* ---------- offline-cache orchestration (fast, self-healing) ---------- */
+  var ac = window.applicationCache;
+  var MEM = (function () { try { sessionStorage.setItem("__pz", "1"); sessionStorage.removeItem("__pz"); return true; } catch (e) { return false; } })();
+
+  function showTap(t) { tap.style.display = "block"; tap.textContent = t; say(t, "warn"); }
+
+  function reloadIndex() {                                // reload index itself: URL must stay exactly index.html for cache match
+    var q = location.search.replace(/[?&]r=\d+/g, "");
+    try { location.replace(location.pathname + q); } catch (e) { location.href = location.pathname + q; }
+  }
+
+  function doSwap() {                                     // cache is ready to swap -> swap + one auto reload, then manual prompt
+    try { ac.swapCache(); } catch (e) {}
+    var n = MEM ? (parseInt(sessionStorage.getItem("pz_n") || "0", 10) + 1) : 9;
+    if (MEM && n < 3) {
+      try { sessionStorage.setItem("pz_n", String(n)); } catch (e) {}
+      subOnly("تم التحديث — إعادة الفتح تلقائيًا… / Updated — reloading…");
+      say("", "");
+      setTimeout(reloadIndex, 150);
     } else {
-        setCache("checking cache...");
-        ac.addEventListener("downloading",
-            function () { setCache("جارٍ تحميل الملفات للعمل بدون إنترنت… 0%"); }, false);
-        ac.addEventListener("progress", function (e) {
-            if (e && e.total)
-                setCache("جارٍ تحميل الملفات للعمل بدون إنترنت… " + Math.round((e.loaded / e.total) * 100) + "%");
-        }, false);
-        ac.addEventListener("cached", function () { showOfflineReady(); }, false);
-        ac.addEventListener("updateready", function () { try { ac.swapCache(); } catch (e) {} showOfflineReady(); }, false);
-        ac.addEventListener("noupdate", function () {
-            setCache("cached -- offline ready", true);
-            go();
-        }, false);
-        ac.addEventListener("error", function () {
-            setCache("cache unavailable");
-            waitForTap("CACHE FAILED -- press X or tap to run anyway", go);
-        }, false);
-        ac.addEventListener("obsolete", function () {
-            setCache("cache obsolete");
-            waitForTap("CACHE OBSOLETE -- press X or tap to run", go);
-        }, false);
+      showTap("تم تحديث الكاش — انقر أو اضغط X للاستمرار • Cache updated — tap / press X");
+      tap.addEventListener("click", reloadIndex, false);
+      window.addEventListener("keydown", reloadIndex, false);
     }
+  }
+
+  function failSafe(reason) {
+    if (GONE) return;
+    if (!RETRIED) {
+      RETRIED = true;
+      try { if (ac.status !== ac.IDLE && ac.status !== ac.UPDATEREADY) { ac.update(); subOnly("إعادة المحاولة… / Retrying…"); return; } } catch (e) {}
+    }
+    subOnly("تشغيل مباشر (تعذّر الكاش) • Running online — cache unavailable");
+    say("", "warn");
+    setTimeout(function () { go(""); }, 2600);            // never block the user
+  }
+
+  function arm() {
+    subOnly("جارٍ تحميل ملفات التشغيل بدون إنترنت… / Downloading offline files…");
+    busy(); say("", "");
+
+    ac.addEventListener("downloading", function () { subOnly("جارٍ تحميل ملفات التشغيل بدون إنترنت… / Downloading offline files…"); busy(); }, false);
+    ac.addEventListener("progress", function (e) {
+      if (e && e.total) { setFill((e.loaded / e.total) * 100); subOnly("جارٍ التحميل… / Downloading…"); }
+    }, false);
+    ac.addEventListener("cached", doSwap, false);
+    ac.addEventListener("updateready", doSwap, false);
+    ac.addEventListener("noupdate", function () { go("جاهز — جارٍ الإقلاع… / Ready — launching…"); }, false);
+    ac.addEventListener("error", function () { failSafe("error"); }, false);
+    ac.addEventListener("obsolete", function () { failSafe("obsolete"); }, false);
+
+    WATCHDOG = setTimeout(function () {                    // nothing fired in time: never hang, just go online
+      if (!GONE) { subOnly("متابعة تلقائية — تشغيل مباشر • Auto-continue — running"); say("", "warn"); go(""); }
+    }, 45000);
+
+    setTimeout(function () {                               // belt & braces: re-check in case status flipped mid-setup
+      if (GONE) return;
+      try {
+        if (ac.status === ac.IDLE) { clearTimeout(WATCHDOG); go("جاهز — جارٍ الإقلاع… / Ready — launching…"); }
+        else if (ac.status === ac.UPDATEREADY) { clearTimeout(WATCHDOG); doSwap(); }
+      } catch (e) {}
+    }, 250);
+  }
+
+  function boot() {
+    if (navigator.onLine === false) {                      // offline: cache must already be in place, launch right away
+      subOnly("وضع الأوفلاين / OFFLINE MODE"); say("", "warn");
+      go(""); return;
+    }
+    try {
+      if (!ac || !document.documentElement.hasAttribute("manifest")) { say("", "warn"); go(""); return; }   // no cache support: direct online run
+      if (ac.status === ac.IDLE)          { go("جاهز — جارٍ الإقلاع… / Ready — launching…"); return; }      // cached already: zero delay
+      if (ac.status === ac.UPDATEREADY)   { doSwap(); return; }                                              // new manifest waiting
+      if (ac.status === ac.CHECKING || ac.status === ac.DOWNLOADING) { arm(); return; }                       // first run: show progress
+      arm();                                                                                                  // OBSOLETE/UNCACHED/other: try update
+    } catch (e) { go(""); }
+  }
+  boot();
 })();
 </script>
 </body>
